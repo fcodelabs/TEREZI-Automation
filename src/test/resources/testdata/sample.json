@@ -1,0 +1,18 @@
+{
+  "testDataInfoList": [
+    {
+      "testCaseReference": "TC-001",
+      "request": {
+        "name": "morpheus",
+        "job": "leader"
+      },
+      "response": {
+        "name": "morpheus",
+        "job": "leader",
+        "id": "77",
+        "createdAt": "2023-05-31T11:09:50.179Z",
+        "responseCode": 201
+      }
+    }
+  ]
+}
