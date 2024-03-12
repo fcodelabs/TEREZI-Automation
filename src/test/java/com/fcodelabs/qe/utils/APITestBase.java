@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 import static com.fcodelabs.qe.common.Constants.SAMPLE_JSON;
 import static com.fcodelabs.qe.common.Constants.TEST_DATA_DIRECTORY;
 
-public class TestBase {
+public class APITestBase {
 
     public static SoftAssert softAssert;
     public static TestData postDataList;
