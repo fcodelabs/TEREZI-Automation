@@ -21,7 +21,7 @@ public class signIn extends WebPageBase {
         clickElement(btnNext);
     }
 
-
+    // Method to enter password and click sign in and then click Yes
     public void signIn(String password) {
         typeText(txtPassword, password);
         clickElement(btnSignIn);
