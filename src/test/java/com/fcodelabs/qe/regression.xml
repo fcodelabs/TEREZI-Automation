@@ -3,7 +3,7 @@
 <suite name="Playwright Demo" verbose="10">
 
     <listeners>
-        <listener class-name="com.fcodelabs.qe.utils.testngListeners.WebTestListener"/>
+        <listener class-name="com.fcodelabs.qe.utils.PlaywrightTestBase"/>
     </listeners>
     <test name="User Login">
         <classes>
