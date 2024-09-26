@@ -5,7 +5,7 @@ import com.microsoft.playwright.Page;
 
 public class createProject extends WebPageBase {
 
-    public String btnCreateProject = "xpath= //button[normalize-space()='Create Project']";
+    public String btnCreateProject = "xpath=(//button[normalize-space()='Create Project'])[1]";
     public String formCreateProject = "xpath=//div[@class='MuiBox-root css-1jp4s0u']";
     public String InputFieldProjectName = "xpath=//input[@id=':ri:']";
     public String InputFieldClientName = "xpath=//input[@id=':rj:']";

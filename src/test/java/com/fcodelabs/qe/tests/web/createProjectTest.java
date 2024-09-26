@@ -16,8 +16,11 @@ public class createProjectTest extends PlaywrightTestBase {
         CreateProjects = new createProject(page);
     }
 
-    @Test(dependsOnMethods = {"com.fcodelabs.qe.tests.web.signInTest.enterEmail", "com.fcodelabs.qe.tests.web.signInTest.signIn",
-    "com.fcodelabs.qe.tests.web.navigateToProjectTest.testClickProject"})
+    @Test(dependsOnMethods = {
+            "com.fcodelabs.qe.tests.web.signInTest.enterEmail",
+            "com.fcodelabs.qe.tests.web.signInTest.signIn",
+            "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
+    })
     public void testCreateProjectButton() {
         CreateProjects.ClickCreateProject();
     }
