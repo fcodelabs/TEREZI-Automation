@@ -3,9 +3,11 @@ package com.fcodelabs.qe.uipges.web;
 import com.fcodelabs.qe.playwright.WebPageBase;
 import com.microsoft.playwright.Page;
 
-public class createProject extends WebPageBase {
+public class project extends WebPageBase {
 
     public String btnCreateProject = "xpath=(//button[normalize-space()='Create Project'])[1]";
+    public String SearchProject = "xpath=//input[@placeholder='Search']";
+    public String SearchProjectResults = "xpath=//a[@class='MuiButtonBase-root MuiCardActionArea-root css-1m5f78l']";
     public String formCreateProject = "xpath=//div[@class='MuiBox-root css-1jp4s0u']";
     public String InputFieldProjectName = "xpath=//input[@id=':ri:']";
     public String InputFieldClientName = "xpath=//input[@id=':rj:']";
@@ -41,7 +43,17 @@ public class createProject extends WebPageBase {
         isElementVisible(btnCancel);
     }
 
-    public createProject(Page page) {
+    public void CheckSearchProject(){
+        isElementVisible(SearchProject);
+    }
+
+    public void CheckSearchProjectResults(String searchItem){
+        typeText(SearchProject,searchItem);
+        isElementVisible(SearchProjectResults);
+    }
+
+
+    public project(Page page) {
         super(page);
     }
 }

@@ -19,17 +19,17 @@ public class signInTest extends PlaywrightTestBase {
     public Object[][] loginCreds() {
         return new Object[][]{
                 {"testuser1@fcodelabs.com", "Tharu@1234"}
+//                {"testuser1@fcodelabs.com", "Tharu@1234"},
+//                {"testuser2@fcodelabs.com", "Password123"},
+//                {"invaliduser@fcodelabs.com", "WrongPassword"},
+//                {"testuser3@fcodelabs.com", "Tharu@5678"}
         };
     }
 
-    @Test(dataProvider = "loginDataProvider", groups = {"signInTest"})
-    public void enterEmail(String email, String password) {
-        sign.enterEmail(email);  // Only the email is needed here
-    }
 
     @Test(dataProvider = "loginDataProvider", groups = {"signInTest"})
-    public void signIn(String email, String password) {
-        sign.signIn(password);  // Only the password is needed here
+    public void testSignIn(String email, String password) {
+        sign.signIn(email, password);  // Only the password is needed here
     }
 
 }

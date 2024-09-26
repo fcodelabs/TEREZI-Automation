@@ -15,14 +15,10 @@ public class signIn extends WebPageBase {
         super(page);
     }
 
-    // Method to enter email and click Next
-    public void enterEmail(String email) {
+    // Method to enter password and click sign in and then click Yes`
+    public void signIn(String email, String password) {
         typeText(txtEmail, email);
         clickElement(btnNext);
-    }
-
-    // Method to enter password and click sign in and then click Yes
-    public void signIn(String password) {
         typeText(txtPassword, password);
         clickElement(btnSignIn);
         clickElement(btnYes);
