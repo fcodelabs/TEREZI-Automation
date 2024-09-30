@@ -15,21 +15,41 @@ public class signInTest extends PlaywrightTestBase {
         sign = new signIn(getPage());
     }
 
-    @DataProvider(name = "loginDataProvider")
-    public Object[][] loginCreds() {
+    @DataProvider(name = "loginDataProviderSuccessful")
+    public Object[][] loginCredsSuccessful() {
         return new Object[][]{
                 {"testuser1@fcodelabs.com", "Tharu@1234"}
-//                {"testuser1@fcodelabs.com", "Tharu@1234"},
-//                {"testuser2@fcodelabs.com", "Password123"},
-//                {"invaliduser@fcodelabs.com", "WrongPassword"},
-//                {"testuser3@fcodelabs.com", "Tharu@5678"}
+        };
+    }
+
+    @DataProvider(name = "loginDataProviderUnsuccessfulWrongEmail")
+    public Object[][] loginCredsUnsuccessfulWrongEmail() {
+        return new Object[][]{
+                {"dasundhammasara9@gmail.com", "Tharu@1234"}
+        };
+    }
+
+    @DataProvider(name = "loginDataProviderUnsuccessfulWrongPassword")
+    public Object[][] loginCredsUnsuccessfulWrongPassword() {
+        return new Object[][]{
+                {"testuser1@fcodelabs.com", "Tharu1234"}
         };
     }
 
 
-    @Test(dataProvider = "loginDataProvider", groups = {"signInTest"})
-    public void testSignIn(String email, String password) {
-        sign.signIn(email, password);  // Only the password is needed here
+    @Test(dataProvider = "loginDataProviderSuccessful", groups = {"signInTest"})
+    public void testSignInSuccessful(String email, String password) {
+        sign.signInSuccessful(email, password);
+    }
+
+    @Test(dataProvider = "loginDataProviderUnsuccessfulWrongEmail", groups = {"signInTest"})
+    public void testSignInUnsuccessfulWrongEmail(String email, String password) {
+        sign.signInUnsuccessfulWrongEmail(email, password);
+    }
+
+    @Test(dataProvider = "loginDataProviderUnsuccessfulWrongPassword", groups = {"signInTest"})
+    public void testSignInUnsuccessfulWrongPassword(String email, String password) {
+        sign.signInUnsuccessfulWrongPassword(email, password);
     }
 
 }

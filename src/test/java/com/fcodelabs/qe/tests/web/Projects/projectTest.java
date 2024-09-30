@@ -1,4 +1,4 @@
-package com.fcodelabs.qe.tests.web;
+package com.fcodelabs.qe.tests.web.Projects;
 
 import com.fcodelabs.qe.uipges.web.project;
 import com.fcodelabs.qe.utils.PlaywrightTestBase;
@@ -25,7 +25,7 @@ public class projectTest extends PlaywrightTestBase {
     }
 
     @Test(dependsOnMethods = {
-            "com.fcodelabs.qe.tests.web.signInTest.testSignIn",
+            "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
             "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
     })
     public void testCheckCreateProjectButton() {
@@ -40,16 +40,6 @@ public class projectTest extends PlaywrightTestBase {
     @Test
     public void testCheckCreateProjectFormContent(){
         Projects.CheckCreateProjectFormContent();
-    }
-
-    @Test
-    public void testCheckSearchProject(){
-        Projects.CheckSearchProject();
-    }
-
-    @Test(dataProvider = "searchDataProvider")
-    public void testCheckSearchProjectResults(String searchItem) {
-        Projects.CheckSearchProjectResults(searchItem);  // Only the password is needed here
     }
 
 }

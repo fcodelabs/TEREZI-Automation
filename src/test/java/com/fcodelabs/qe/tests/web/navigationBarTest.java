@@ -12,11 +12,11 @@ public class navigationBarTest extends PlaywrightTestBase {
 
     @BeforeClass
     public void setup() {
-        Page page = getPage(); // Ensure this method returns a valid Page instance
-        NavigationBar = new navigationBar(page); // Initialize LandingPage with the Page instance
+        Page page = getPage();
+        NavigationBar = new navigationBar(page);
     }
 
-    @Test(dependsOnMethods = {"com.fcodelabs.qe.tests.web.signInTest.testSignIn"})
+    @Test(dependsOnMethods = {"com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful"})
     public void testClickResourceAllocation() {
         NavigationBar.ClickResourceAllocation();
     }

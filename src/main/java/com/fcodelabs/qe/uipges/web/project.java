@@ -5,10 +5,15 @@ import com.microsoft.playwright.Page;
 
 public class project extends WebPageBase {
 
+    //projects section components
     public String btnCreateProject = "xpath=(//button[normalize-space()='Create Project'])[1]";
     public String SearchProject = "xpath=//input[@placeholder='Search']";
-    public String SearchProjectResults = "xpath=//a[@class='MuiButtonBase-root MuiCardActionArea-root css-1m5f78l']";
+    public String SearchProjectResults = "xpath=//p[@class='MuiTypography-root MuiTypography-body1 css-138e72y']";
     public String formCreateProject = "xpath=//div[@class='MuiBox-root css-1jp4s0u']";
+    //project card components
+    public String SearchProjectMember = "xpath=//input[@id='search-bar']";
+    public String btnAddProjectMember = "xpath=//p[normalize-space()='+ Add Member']";
+    //create new project form components
     public String InputFieldProjectName = "xpath=//input[@id=':ri:']";
     public String InputFieldClientName = "xpath=//input[@id=':rj:']";
     public String InputFieldProjectTypeFTFC = "xpath=//div[normalize-space()='Fixed-Time Fixed-Cost Project']";
