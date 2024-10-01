@@ -19,7 +19,7 @@ public class projectSearchTest extends PlaywrightTestBase {
     @DataProvider(name = "searchDataProvider")
     public Object[][] searchDataProvider() {
         return new Object[][]{
-                {"Automation Test"}
+                {"TEREZI Automation"}
         };
     }
 

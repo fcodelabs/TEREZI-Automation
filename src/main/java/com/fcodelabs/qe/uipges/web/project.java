@@ -8,7 +8,7 @@ public class project extends WebPageBase {
     //projects section components
     public String btnCreateProject = "xpath=(//button[normalize-space()='Create Project'])[1]";
     public String SearchProject = "xpath=//input[@placeholder='Search']";
-    public String SearchProjectResults = "xpath=//p[@class='MuiTypography-root MuiTypography-body1 css-138e72y']";
+    public String SearchProjectResults = "xpath=(//a[@class='MuiButtonBase-root MuiCardActionArea-root css-1m5f78l'])[1]";
     public String formCreateProject = "xpath=//div[@class='MuiBox-root css-1jp4s0u']";
     public String TabActiveProjects = "xpath=//button[normalize-space()='Active']";
     public String TabCompletedProjects = "xpath=//button[normalize-space()='Completed']";
@@ -20,6 +20,16 @@ public class project extends WebPageBase {
     //project details components
     public String SearchProjectMember = "xpath=//input[@id='search-bar']";
     public String btnAddProjectMember = "xpath=//p[normalize-space()='+ Add Member']";
+    //Add member form components
+    public String InputFieldAddMemberName = "xpath=//input[@id=':rc:']";
+    public String SelectFirstOptionInDropDown = "xpath=div[class='MuiBox-root css-18mgonu'] div:nth-child(3)";
+    public String InputFieldAddMemberRole = "xpath=//input[@id=':re:']";
+    public String InputFieldResourceStart = "xpath=//input[@id=':rg:']";
+    public String InputFieldResourceEnd = "xpath=//input[@id=':ri:']";
+    public String InputFieldAllocation = "xpath=//input[@id=':ro:']";
+    public String btnAddMemberCancel = "xpath=//button[normalize-space()='Cancel']";
+    public String btnAddMemberSave = "xpath=//button[@id=':rk:']";
+    public String CheckBoxMoreThanForty = "xpath=(//input[@type='checkbox'])[3]";
     //create new project form components
     public String InputFieldProjectName = "xpath=//input[@id=':r2:']";
     public String InputFieldClientName = "xpath=//input[@id=':r3:']";
@@ -31,8 +41,8 @@ public class project extends WebPageBase {
     public String InputFieldTentativeEnd = "xpath=//input[@id=':r7:']";
     public String InputFieldHypercarePeriod = "xpath=//input[@id=':r9:']";
     public String InputFieldProjectManager = "xpath=//input[@id=':ra:']";
-    public String btnCancel = "xpath=//input[@id=':rq:']";
-    public String btnSave = "xpath=//button[normalize-space()='Save']";
+    public String btnNewProjectCancel = "xpath=//input[@id=':rq:']";
+    public String btnNewProjectSave = "xpath=//button[normalize-space()='Save']";
 
     public void CheckProjectSectionContent(){
         isElementVisible(btnCreateProject);
@@ -63,8 +73,8 @@ public class project extends WebPageBase {
         isElementVisible(InputFieldTentativeEnd);
         isElementVisible(InputFieldHypercarePeriod);
         isElementVisible(InputFieldProjectManager);
-        isElementVisible(btnSave);
-        isElementVisible(btnCancel);
+        isElementVisible(btnNewProjectSave);
+        isElementVisible(btnNewProjectCancel);
     }
 
     public void CreateProject(String projectName, String clientName, String TentativeStart, String TentativeEnd,String hypercarePeriod, String projectManager){
@@ -77,7 +87,7 @@ public class project extends WebPageBase {
         typeText(InputFieldTentativeEnd, TentativeEnd);
         typeText(InputFieldHypercarePeriod, hypercarePeriod);
         typeText(InputFieldProjectManager, projectManager);
-        clickElement(btnSave);
+        clickElement(btnNewProjectSave);
     }
 
     public void CheckSearchProject(){
@@ -87,7 +97,50 @@ public class project extends WebPageBase {
     public void CheckSearchProjectResults(String searchItem){
         typeText(SearchProject,searchItem);
         isElementVisible(SearchProjectResults);
+        clickElement(SearchProjectResults);
     }
+
+//    public void CheckAddProjectMember(String name, String role, String startDate, String endDate, String allocation){
+//        clickElement(btnAddProjectMember);
+//        typeText(InputFieldAddMemberName, name);
+//        typeText(InputFieldAddMemberRole, role);
+//        typeText(InputFieldResourceStart, startDate);
+//        typeText(InputFieldResourceEnd, endDate);
+//        typeText(InputFieldAllocation, allocation);
+//        clickElement(btnAddMemberSave);
+//    }
+public void CheckAddProjectMember(String name, String role, String startDate, String endDate, String allocation) {
+    // Step 1: Click on 'Add Project Member' button
+    clickElement(btnAddProjectMember);
+
+    // Pause for 5 seconds
+    try {
+        Thread.sleep(5000);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+
+    typeText(InputFieldAddMemberName, name);
+
+
+    // Pause
+    try {
+        Thread.sleep(5000);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    clickElement(SelectFirstOptionInDropDown);
+
+    // Continue with the rest of the steps
+    typeText(InputFieldAddMemberRole, role);
+    typeText(InputFieldResourceStart, startDate);
+    typeText(InputFieldResourceEnd, endDate);
+    typeText(InputFieldAllocation, allocation);
+
+    // Final step: Save
+    clickElement(btnAddMemberSave);
+}
+
 
 
 
