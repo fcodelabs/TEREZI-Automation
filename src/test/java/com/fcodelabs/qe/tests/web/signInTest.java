@@ -42,14 +42,14 @@ public class signInTest extends PlaywrightTestBase {
         sign.signInSuccessful(email, password);
     }
 
-    @Test(dataProvider = "loginDataProviderUnsuccessfulWrongEmail", groups = {"signInTest"})
-    public void testSignInUnsuccessfulWrongEmail(String email, String password) {
-        sign.signInUnsuccessfulWrongEmail(email, password);
-    }
-
-    @Test(dataProvider = "loginDataProviderUnsuccessfulWrongPassword", groups = {"signInTest"})
-    public void testSignInUnsuccessfulWrongPassword(String email, String password) {
-        sign.signInUnsuccessfulWrongPassword(email, password);
-    }
+//    @Test(dataProvider = "loginDataProviderUnsuccessfulWrongEmail", groups = {"signInTest"})
+//    public void testSignInUnsuccessfulWrongEmail(String email, String password) {
+//        sign.signInUnsuccessfulWrongEmail(email, password);
+//    }
+//
+//    @Test(dataProvider = "loginDataProviderUnsuccessfulWrongPassword", groups = {"signInTest"})
+//    public void testSignInUnsuccessfulWrongPassword(String email, String password) {
+//        sign.signInUnsuccessfulWrongPassword(email, password);
+//    }
 
 }

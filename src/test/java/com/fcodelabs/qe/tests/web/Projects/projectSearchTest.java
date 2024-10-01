@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class projectSearch extends PlaywrightTestBase {
+public class projectSearchTest extends PlaywrightTestBase {
     project projects;
 
     @BeforeClass

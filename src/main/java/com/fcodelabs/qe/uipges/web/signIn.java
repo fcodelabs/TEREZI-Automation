@@ -12,6 +12,8 @@ public class signIn extends WebPageBase {
     String btnYes = "xpath= //input[@id='idSIButton9']";
     String wrongEmail = "xpath=//div[@id='usernameError']";
     String wrongPassword = "xpath=//div[@id='passwordError']";
+    String avatar = "xpath=//div[@id='avatar']";
+    String btnLogOut = "xpath=//div[@class='MuiBox-root css-muxfrw']";
 
     public signIn(Page page) {
         super(page);
@@ -37,6 +39,11 @@ public class signIn extends WebPageBase {
         typeText(txtPassword, password);
         clickElement(btnSignIn);
         isElementVisible(wrongPassword);
+    }
+
+    public void signOut(){
+        clickElement(avatar);
+        clickElement(btnLogOut);
     }
 
 

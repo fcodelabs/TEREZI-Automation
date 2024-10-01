@@ -1,4 +1,4 @@
 package com.fcodelabs.qe.tests.web.Projects;
 
-public class projectCard {
+public class projectCardTest {
 }
