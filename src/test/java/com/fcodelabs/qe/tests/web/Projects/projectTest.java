@@ -4,7 +4,6 @@ import com.fcodelabs.qe.uipges.web.project;
 import com.fcodelabs.qe.utils.PlaywrightTestBase;
 import com.microsoft.playwright.Page;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class projectTest extends PlaywrightTestBase {
@@ -15,13 +14,6 @@ public class projectTest extends PlaywrightTestBase {
     public void setup() {
         Page page = getPage();
         Projects = new project(page);
-    }
-
-    @DataProvider(name = "searchDataProvider")
-    public Object[][] loginCreds() {
-        return new Object[][]{
-                {"TEREZI Automation"}
-        };
     }
 
     @Test(dependsOnMethods = {
@@ -35,16 +27,6 @@ public class projectTest extends PlaywrightTestBase {
     @Test(description = "HRIS-TC-77")
     public void testCheckCreateProjectButton() {
         Projects.ClickCreateProject();
-    }
-
-    @Test(description = "HRIS-TC-74")
-    public void testCheckCreateFormAvailability(){
-        Projects.CheckCreateFormAvailability();
-    }
-
-    @Test(description = "HRIS-TC-73")
-    public void testCheckCreateProjectFormContent(){
-        Projects.CheckCreateProjectFormContent();
     }
 
 }

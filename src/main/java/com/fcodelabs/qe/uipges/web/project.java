@@ -59,7 +59,7 @@ public class project extends WebPageBase {
         clickElement(btnCreateProject);
     }
 
-    public void CheckCreateFormAvailability(){
+    public void CheckCreateProjectFormAvailability(){
         isElementVisible(formCreateProject);
     }
 
@@ -77,8 +77,36 @@ public class project extends WebPageBase {
         isElementVisible(btnNewProjectCancel);
     }
 
-    public void CreateProject(String projectName, String clientName, String TentativeStart, String TentativeEnd,String hypercarePeriod, String projectManager){
+    // Helper method to check if a field is mandatory
+    public void checkIfMandatory(String inputFieldSelector, String fieldName) {
+        boolean isRequired = page.locator(inputFieldSelector).getAttribute("required") != null;
+
+        if (isRequired) {
+            System.out.println(fieldName + " is a mandatory field.");
+        } else {
+            System.out.println(fieldName + " is not a mandatory field.");
+        }
+    }
+
+    public void CheckCreateProjectFormMandatoryFields(){
         clickElement(btnCreateProject);
+        checkIfMandatory(InputFieldProjectName, "Project Name");
+        checkIfMandatory(InputFieldTentativeStart, "Tentative Start Date");
+        checkIfMandatory(InputFieldTentativeEnd, "Tentative End Date");
+        checkIfMandatory(InputFieldProjectManager, "Project Manager");
+
+    }
+
+    public void CheckAddProjectMemberFormMandatoryFields(){
+        checkIfMandatory(InputFieldAddMemberName, "Add member name");
+        checkIfMandatory(InputFieldAddMemberRole,"Add member role");
+        checkIfMandatory(InputFieldResourceStart,"Resource start");
+        checkIfMandatory(InputFieldResourceEnd,"Resource end");
+        checkIfMandatory(InputFieldAllocation,"Allocation");
+    }
+
+    public void CreateProject(String projectName, String clientName, String TentativeStart, String TentativeEnd,String hypercarePeriod, String projectManager){
+        //clickElement(btnCreateProject);
         typeText(InputFieldProjectName, projectName);
         typeText(InputFieldClientName,clientName);
         //clickElement(DropDownProjectType);
@@ -100,48 +128,37 @@ public class project extends WebPageBase {
         clickElement(SearchProjectResults);
     }
 
-//    public void CheckAddProjectMember(String name, String role, String startDate, String endDate, String allocation){
-//        clickElement(btnAddProjectMember);
-//        typeText(InputFieldAddMemberName, name);
-//        typeText(InputFieldAddMemberRole, role);
-//        typeText(InputFieldResourceStart, startDate);
-//        typeText(InputFieldResourceEnd, endDate);
-//        typeText(InputFieldAllocation, allocation);
-//        clickElement(btnAddMemberSave);
-//    }
-public void CheckAddProjectMember(String name, String role, String startDate, String endDate, String allocation) {
-    // Step 1: Click on 'Add Project Member' button
-    clickElement(btnAddProjectMember);
+    public void CheckAddProjectMember(String name, String role, String startDate, String endDate, String allocation) {
+        clickElement(btnAddProjectMember);
 
-    // Pause for 5 seconds
-    try {
-        Thread.sleep(5000);
-    } catch (InterruptedException e) {
-        e.printStackTrace();
+        // Pause for 5 seconds
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        typeText(InputFieldAddMemberName, name);
+
+
+        // Pause
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //clickElement(SelectFirstOptionInDropDown);
+
+        page.keyboard().press("ArrowDown");
+        page.keyboard().press("Enter");
+
+        typeText(InputFieldAddMemberRole, role);
+        typeText(InputFieldResourceStart, startDate);
+        typeText(InputFieldResourceEnd, endDate);
+        typeText(InputFieldAllocation, allocation);
+
+        clickElement(btnAddMemberSave);
     }
-
-    typeText(InputFieldAddMemberName, name);
-
-
-    // Pause
-    try {
-        Thread.sleep(5000);
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
-//    clickElement(SelectFirstOptionInDropDown);
-
-    page.keyboard().press("ArrowDown");
-    page.keyboard().press("Enter");
-    // Continue with the rest of the steps
-    typeText(InputFieldAddMemberRole, role);
-    typeText(InputFieldResourceStart, startDate);
-    typeText(InputFieldResourceEnd, endDate);
-    typeText(InputFieldAllocation, allocation);
-
-    // Final step: Save
-    clickElement(btnAddMemberSave);
-}
 
 
 

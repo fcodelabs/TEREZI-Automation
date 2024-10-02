@@ -2,7 +2,6 @@ package com.fcodelabs.qe.tests.web.Projects;
 
 import com.fcodelabs.qe.uipges.web.project;
 import com.fcodelabs.qe.utils.PlaywrightTestBase;
-import com.microsoft.playwright.Page;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -13,6 +12,21 @@ public class projectCreateTest extends PlaywrightTestBase {
     @BeforeMethod
     public void setUp() {
         Projects = new project(getPage());
+    }
+
+    @Test(description = "HRIS-TC-74")
+    public void testCheckCreateProjectFormAvailability(){
+        Projects.CheckCreateProjectFormAvailability();
+    }
+
+    @Test(description = "HRIS-TC-73")
+    public void testCheckCreateProjectFormContent(){
+        Projects.CheckCreateProjectFormContent();
+    }
+
+    @Test(description = "HRIS-TC-")
+    public void testCheckCreateProjectFormMandatoryFields(){
+        Projects.CheckCreateProjectFormMandatoryFields();
     }
 
     @DataProvider(name = "CreateProjectDataProviderSuccessful")
