@@ -129,8 +129,10 @@ public void CheckAddProjectMember(String name, String role, String startDate, St
     } catch (InterruptedException e) {
         e.printStackTrace();
     }
-    clickElement(SelectFirstOptionInDropDown);
+//    clickElement(SelectFirstOptionInDropDown);
 
+    page.keyboard().press("ArrowDown");
+    page.keyboard().press("Enter");
     // Continue with the rest of the steps
     typeText(InputFieldAddMemberRole, role);
     typeText(InputFieldResourceStart, startDate);
