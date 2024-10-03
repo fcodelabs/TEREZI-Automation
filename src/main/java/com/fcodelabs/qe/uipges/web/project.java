@@ -14,7 +14,18 @@ public class project extends WebPageBase {
     public String TabCompletedProjects = "xpath=//button[normalize-space()='Completed']";
     public String FilterByProjectType = "xpath=//div[normalize-space()='Filter by Project Type']";
     public String FilterByStatus = "xpath=//div[normalize-space()='Filter by Status']";
-    //project card components
+    //project Edit form components
+    public String btnEditProject = "xpath=//button[normalize-space()='Edit']";
+    public String InputFieldEditProjectName = "xpath=(//input[@id=':r2:'])[1]";
+    public String InputFieldEditClientName = "xpath=(//input[@id=':r3:'])[1]";
+    public String DropDownEditProjectType = "xpath=//div[normalize-space()='Time & Material with Budget Cap']";
+    public String InputFieldEditTentativeStart = "xpath=(//input[@id=':r5:'])[1]";
+    public String InputFieldEditTentativeEnd = "xpath=//input[@id=':r7:']";
+    public String InputFieldEditHypercarePeriod = "xpath=(//input[@id=':r9:'])[1]";
+    public String InputFieldEditProjectManager = "xpath=(//input[@id=':ra:'])[1]";
+    public String InputFieldEditProjectAllocation = "xpath=(//input[@id=':rc:'])[1]";
+    public String btnEditProjectCancel = "xpath=//button[normalize-space()='Cancel']";
+    public String btnEditProjectSave = "xpath=(//button[normalize-space()='Confirm'])[1]";
 
 
     //project details components
@@ -41,6 +52,7 @@ public class project extends WebPageBase {
     public String InputFieldTentativeEnd = "xpath=//input[@id=':r7:']";
     public String InputFieldHypercarePeriod = "xpath=//input[@id=':r9:']";
     public String InputFieldProjectManager = "xpath=//input[@id=':ra:']";
+    public String InputFieldProjectManagerAllocation = "xpath=(//input[@id=':r1q:'])[1]";
     public String btnNewProjectCancel = "xpath=//input[@id=':rq:']";
     public String btnNewProjectSave = "xpath=//button[normalize-space()='Save']";
 
@@ -126,6 +138,33 @@ public class project extends WebPageBase {
         typeText(SearchProject,searchItem);
         isElementVisible(SearchProjectResults);
         clickElement(SearchProjectResults);
+    }
+    public void CheckEditProject(String projectName, String clientName, String TentativeStart, String TentativeEnd,String hypercarePeriod, String projectManager, String allocation){
+        page.goBack();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        clickElement(btnEditProject);
+        typeText(InputFieldEditProjectName, projectName);
+        typeText(InputFieldEditClientName,clientName);
+        clickElement(DropDownEditProjectType);
+
+        page.keyboard().press("Enter");
+
+        typeText(InputFieldEditTentativeStart,TentativeStart);
+        typeText(InputFieldEditTentativeEnd, TentativeEnd);
+        typeText(InputFieldEditHypercarePeriod, hypercarePeriod);
+        typeText(InputFieldEditProjectManager, projectManager);
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        typeText(InputFieldEditProjectAllocation, allocation);
+        clickElement(btnEditProjectSave);
     }
 
     public void CheckAddProjectMember(String name, String role, String startDate, String endDate, String allocation) {
