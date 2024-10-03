@@ -26,7 +26,7 @@ public class project extends WebPageBase {
     public String InputFieldEditProjectAllocation = "xpath=(//input[@id=':rc:'])[1]";
     public String btnEditProjectCancel = "xpath=//button[normalize-space()='Cancel']";
     public String btnEditProjectSave = "xpath=(//button[normalize-space()='Confirm'])[1]";
-
+    //project card content
 
     //project details components
     public String SearchProjectMember = "xpath=//input[@id='search-bar']";
@@ -56,15 +56,26 @@ public class project extends WebPageBase {
     public String btnNewProjectCancel = "xpath=//input[@id=':rq:']";
     public String btnNewProjectSave = "xpath=//button[normalize-space()='Save']";
 
-    public void CheckProjectSectionContent(){
+    public void CheckActiveProjectTabSectionContent(){
         isElementVisible(btnCreateProject);
         isElementVisible(TabActiveProjects);
         isElementVisible(TabCompletedProjects);
         isElementVisible(SearchProject);
         isElementVisible(FilterByProjectType);
         isElementVisible(FilterByStatus);
+    }
 
+    public void CheckCompletedProjectTabSectionContent(){
+        clickElement(TabActiveProjects);
+        isElementVisible(btnCreateProject);
+        isElementVisible(SearchProject);
+        isElementVisible(FilterByProjectType);
+        isElementVisible(FilterByStatus);
+    }
 
+    public void CheckProjectMainTabs(){
+        isElementVisible(TabActiveProjects);
+        isElementVisible(TabCompletedProjects);
     }
 
     public void ClickCreateProject(){

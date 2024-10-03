@@ -16,8 +16,8 @@ public class projectSearchTest extends PlaywrightTestBase {
         projects = new project(page);
     }
 
-    @DataProvider(name = "searchDataProvider")
-    public Object[][] searchDataProvider() {
+    @DataProvider(name = "searchValidDataProvider")
+    public Object[][] searchValidDataProvider() {
         return new Object[][]{
                 {"TEREZI Automation"}
         };
@@ -31,7 +31,7 @@ public class projectSearchTest extends PlaywrightTestBase {
         projects.CheckSearchProject();
     }
 
-    @Test(dataProvider = "searchDataProvider")
+    @Test(dataProvider = "searchValidDataProvider")
     public void testCheckSearchProjectResults(String searchItem) {
         projects.CheckSearchProjectResults(searchItem);
     }
