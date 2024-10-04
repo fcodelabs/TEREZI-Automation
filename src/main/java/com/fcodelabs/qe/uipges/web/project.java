@@ -65,6 +65,57 @@ public class project extends WebPageBase {
     public String CheckResultsFilterByProjectTypeOptionTimeAndMaterial = "xpath= (//p[@class='MuiTypography-root MuiTypography-body1 css-yqx786'])[1]";
     public String CheckResultsFilterByProjectTypeOptionTimeAndMaterialWithBudgetCap = "xpath=(//div[@class='MuiBackdrop-root MuiBackdrop-invisible MuiModal-backdrop css-esi9ax'])[1]";
 
+    //Filter by Project status
+    public String btnFilterByProjectStatus = "xpath=//div[normalize-space()='Filter by Status']";
+    public String FilterByProjectStatusOptionInitiating = "xpath=(//li[@role='option'])[1]";
+    public String FilterByProjectStatusOptionHypercare = "xpath=(//li[@role='option'])[2]";
+    public String FilterByProjectStatusOptionExecuting = "xpath=(//li[@role='option'])[3]";
+    public String FilterByProjectStatusOptionCompleted = "xpath=(//li[@class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected css-1iolbol'])[1]";
+    public String FilterByProjectStatusOptionDiscontinued = "xpath=(//li[@class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-1iolbol'])[1]";
+    public String CheckResultsFilterByStatusInitiating = "xpath=(//p[@class='MuiTypography-root MuiTypography-body1 css-63369s'])[1]";
+    public String CheckResultsFilterByStatusExecuting = "xpath=(//p[contains(text(),'Executing')])[1]";
+    public String CheckResultsFilterByStatusHypercare = "xpath=(//p[contains(text(),'Hypercare Support')])[1]";
+    public String CheckResultsFilterByStatusCompleted = "xpath=(//p[@class='MuiTypography-root MuiTypography-body1 css-63369s'][normalize-space()='Completed'])[1]";
+    public String CheckResultsFilterByStatusDiscontinued = "xpath=(//p[@class='MuiTypography-root MuiTypography-body1 css-63369s'][normalize-space()='Discontinued'])[1]";
+
+
+    public void  CheckFilterByProjectStatusInitiate(){
+        clickElement(btnFilterByProjectStatus);
+        clickElement(FilterByProjectStatusOptionHypercare);
+        clickElement(FilterByProjectStatusOptionExecuting);
+        isElementVisible(CheckResultsFilterByStatusInitiating);
+        page.reload();
+    }
+
+    public void CheckFilterByProjectStatusExecuting(){
+        clickElement(btnFilterByProjectStatus);
+        clickElement(FilterByProjectStatusOptionInitiating);
+        clickElement(FilterByProjectStatusOptionHypercare);
+        isElementVisible(CheckResultsFilterByStatusExecuting);
+        page.reload();
+    }
+
+    public void CheckFilterByProjectStatusHypercare(){
+        clickElement(btnFilterByProjectStatus);
+        clickElement(FilterByProjectStatusOptionInitiating);
+        clickElement(FilterByProjectStatusOptionExecuting);
+        isElementVisible(CheckResultsFilterByStatusHypercare);
+        page.reload();
+    }
+
+    public void CheckFilterByProjectStatusCompleted(){
+        clickElement(TabCompletedProjects);
+        isElementVisible(CheckResultsFilterByStatusCompleted);
+        page.reload();
+    }
+
+    public void CheckFilterByProjectStatusDiscontinued(){
+        clickElement(TabCompletedProjects);
+        clickElement(btnFilterByProjectStatus);
+        clickElement(FilterByProjectStatusOptionCompleted);
+        clickElement(FilterByProjectStatusOptionDiscontinued);
+        isElementVisible(CheckResultsFilterByStatusDiscontinued);
+    }
 
 
     public void CheckFilterByProjectTypeOptionFTFC(){
