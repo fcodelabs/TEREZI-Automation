@@ -56,6 +56,41 @@ public class project extends WebPageBase {
     public String btnNewProjectCancel = "xpath=//input[@id=':rq:']";
     public String btnNewProjectSave = "xpath=//button[normalize-space()='Save']";
 
+    //Filter by Project components
+    public String btnFilterByProjectType = "xpath=//div[normalize-space()='Filter by Project Type']";
+    public String FilterByProjectTypeOptionFTFC = "xpath=//li[normalize-space()='Fixed-Time Fixed-Cost Project']";
+    public String FilterByProjectTypeOptionTimeAndMaterial = "xpath=//li[normalize-space()='Time & Material Project']";
+    public String FilterByProjectTypeOptionTimeAndMaterialWithBudgetCap = "xpath=//li[normalize-space()='Time & Material with Budget Cap']";
+    public String CheckResultsFilterByProjectTypeOptionFTFC = "xpath=//body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/div[1]/div[2]/div[1]/p[1]";
+    public String CheckResultsFilterByProjectTypeOptionTimeAndMaterial = "xpath= (//p[@class='MuiTypography-root MuiTypography-body1 css-yqx786'])[1]";
+    public String CheckResultsFilterByProjectTypeOptionTimeAndMaterialWithBudgetCap = "xpath=(//div[@class='MuiBackdrop-root MuiBackdrop-invisible MuiModal-backdrop css-esi9ax'])[1]";
+
+
+
+    public void CheckFilterByProjectTypeOptionFTFC(){
+        clickElement(btnFilterByProjectType);
+        clickElement(FilterByProjectTypeOptionTimeAndMaterial);
+        clickElement(FilterByProjectTypeOptionTimeAndMaterialWithBudgetCap);
+        isElementVisible(CheckResultsFilterByProjectTypeOptionFTFC);
+        page.reload();
+    }
+
+    public void CheckFilterByProjectTypeOptionTimeAndMaterial(){
+        clickElement(btnFilterByProjectType);
+        clickElement(FilterByProjectTypeOptionFTFC);
+        clickElement(FilterByProjectTypeOptionTimeAndMaterialWithBudgetCap);
+        isElementVisible(CheckResultsFilterByProjectTypeOptionTimeAndMaterial);
+        page.reload();
+    }
+
+    public void CheckFilterByProjectTypeOptionTimeAndMaterialWithBudgetCap(){
+        clickElement(btnFilterByProjectType);
+        clickElement(FilterByProjectTypeOptionFTFC);
+        clickElement(FilterByProjectTypeOptionTimeAndMaterial);
+        isElementVisible(CheckResultsFilterByProjectTypeOptionTimeAndMaterialWithBudgetCap);
+        page.reload();
+    }
+
     public void CheckActiveProjectTabSectionContent(){
         isElementVisible(btnCreateProject);
         isElementVisible(TabActiveProjects);
@@ -150,6 +185,8 @@ public class project extends WebPageBase {
         isElementVisible(SearchProjectResults);
         clickElement(SearchProjectResults);
     }
+
+
     public void CheckEditProject(String projectName, String clientName, String TentativeStart, String TentativeEnd,String hypercarePeriod, String projectManager, String allocation){
         page.goBack();
         try {

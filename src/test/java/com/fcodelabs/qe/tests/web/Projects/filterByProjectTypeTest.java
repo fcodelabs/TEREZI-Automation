@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class projectSearchTest extends PlaywrightTestBase {
+public class filterByProjectTypeTest extends PlaywrightTestBase {
     project projects;
 
     @BeforeClass
@@ -16,23 +16,22 @@ public class projectSearchTest extends PlaywrightTestBase {
         projects = new project(page);
     }
 
-    @DataProvider(name = "searchValidDataProvider")
-    public Object[][] searchValidDataProvider() {
-        return new Object[][]{
-                {"TEREZI Automation One"}
-        };
-    }
-
     @Test(dependsOnMethods = {
             "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
             "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
     })
-    public void testCheckSearchProject() {
-        projects.CheckSearchProject();
+    public void testCheckFilterByProjectTypeOptionFTFC() {
+        projects.CheckFilterByProjectTypeOptionFTFC();
     }
 
-    @Test(dataProvider = "searchValidDataProvider")
-    public void testCheckSearchProjectResults(String searchItem) {
-        projects.CheckSearchProjectResults(searchItem);
+    @Test
+    public void testCheckFilterByProjectTypeOptionTimeAndMaterial() {
+        projects.CheckFilterByProjectTypeOptionTimeAndMaterial();
+    }
+
+
+    @Test
+    public void testCheckFilterByProjectTypeOptionTimeAndMaterialWithBudgetCap() {
+        projects.CheckFilterByProjectTypeOptionTimeAndMaterialWithBudgetCap();
     }
 }

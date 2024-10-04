@@ -17,7 +17,7 @@ public class projectEditTest extends PlaywrightTestBase {
     @DataProvider(name = "EditProjectDataProviderSuccessful")
     public Object[][] editProjectCredsSuccessful() {
         return new Object[][]{
-                {"TEREZI Automation", "Dasun", "10/01/2024", "10/31/2024", "2", "Test User 2", "10"}
+                {"TEREZI Automation One", "Dasun", "10/01/2024", "10/31/2024", "2", "Test User 2", "10"}
         };
     }
 
