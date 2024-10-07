@@ -2,14 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.fcodelabs.qe</groupId>
+  <groupId>com.terezi</groupId>
   <artifactId>TEREZI_Automation</artifactId>
   <version>1.0.0</version>
 
   <properties>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
-    <suite>regression</suite>
   </properties>
 
   <dependencies>

@@ -26,8 +26,6 @@ public class project extends WebPageBase {
     public String InputFieldEditProjectAllocation = "xpath=(//input[@id=':rc:'])[1]";
     public String btnEditProjectCancel = "xpath=//button[normalize-space()='Cancel']";
     public String btnEditProjectSave = "xpath=(//button[normalize-space()='Confirm'])[1]";
-    //project card content
-
     //project details components
     public String SearchProjectMember = "xpath=//input[@id='search-bar']";
     public String btnAddProjectMember = "xpath=//p[normalize-space()='+ Add Member']";
@@ -77,7 +75,23 @@ public class project extends WebPageBase {
     public String CheckResultsFilterByStatusHypercare = "xpath=(//p[contains(text(),'Hypercare Support')])[1]";
     public String CheckResultsFilterByStatusCompleted = "xpath=(//p[@class='MuiTypography-root MuiTypography-body1 css-63369s'][normalize-space()='Completed'])[1]";
     public String CheckResultsFilterByStatusDiscontinued = "xpath=(//p[@class='MuiTypography-root MuiTypography-body1 css-63369s'][normalize-space()='Discontinued'])[1]";
+    //project card content
+    public String ProjectCardProjectName = "xpath=(//p[@class='MuiTypography-root MuiTypography-body1 css-138e72y'])[1]";
+    public String ProjectCardCreatedOn = "xpath=(//p[@class='MuiTypography-root MuiTypography-body1 css-gdhd1b'])[1]";
+    public String ProjectCardProjectStatus ="xpath=(//p[@class='MuiTypography-root MuiTypography-body1 css-63369s'])[1]";
+    public String ProjectCardRemainingTime = "xpath=(//div[@class='MuiBox-root css-1byfef7'])[1]";
+    public String ProjectCardProjectType = "xpath=(//p[@class='MuiTypography-root MuiTypography-body1 css-yqx786'])[1]";
+    public String ProjectCardMemberIcons = "xpath=(//div[@class='MuiBox-root css-wo8od1'])[2]";
 
+    public void CheckProjectCardContent(){
+        isElementVisible(ProjectCardProjectName);
+        isElementVisible(ProjectCardCreatedOn);
+        isElementVisible(ProjectCardProjectStatus);
+        isElementVisible(ProjectCardRemainingTime);
+        isElementVisible(ProjectCardMemberIcons);
+        isElementVisible(ProjectCardProjectType);
+        isElementVisible(btnEditProject);
+    }
 
     public void  CheckFilterByProjectStatusInitiate(){
         clickElement(btnFilterByProjectStatus);
@@ -116,7 +130,6 @@ public class project extends WebPageBase {
         clickElement(FilterByProjectStatusOptionDiscontinued);
         isElementVisible(CheckResultsFilterByStatusDiscontinued);
     }
-
 
     public void CheckFilterByProjectTypeOptionFTFC(){
         clickElement(btnFilterByProjectType);
@@ -297,11 +310,6 @@ public class project extends WebPageBase {
 
         clickElement(btnAddMemberSave);
     }
-
-
-
-
-
     public project(Page page) {
         super(page);
     }

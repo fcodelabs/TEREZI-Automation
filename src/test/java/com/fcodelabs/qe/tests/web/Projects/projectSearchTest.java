@@ -26,12 +26,12 @@ public class projectSearchTest extends PlaywrightTestBase {
     @Test(dependsOnMethods = {
             "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
             "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
-    })
+    },description = "HRIS-TC-376")
     public void testCheckSearchProject() {
         projects.CheckSearchProject();
     }
 
-    @Test(dataProvider = "searchValidDataProvider")
+    @Test(dataProvider = "searchValidDataProvider",description = "HRIS-TC-376")
     public void testCheckSearchProjectResults(String searchItem) {
         projects.CheckSearchProjectResults(searchItem);
     }
