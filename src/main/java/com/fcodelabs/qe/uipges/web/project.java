@@ -3,6 +3,8 @@ package com.fcodelabs.qe.uipges.web;
 import com.fcodelabs.qe.playwright.WebPageBase;
 import com.microsoft.playwright.Page;
 
+import java.util.List;
+
 public class project extends WebPageBase {
 
     //projects section components
@@ -26,8 +28,27 @@ public class project extends WebPageBase {
     public String InputFieldEditProjectAllocation = "xpath=(//input[@id=':rc:'])[1]";
     public String btnEditProjectCancel = "xpath=//button[normalize-space()='Cancel']";
     public String btnEditProjectSave = "xpath=(//button[normalize-space()='Confirm'])[1]";
-    //project details components
+    //project details page components
     public String SearchProjectMember = "xpath=//input[@id='search-bar']";
+    public String SearchProjectMemberResults = "xpath=//p[normalize-space()='Dasun Hettiarachchi']";
+    public String FilterByMemberRole ="xpath=(//div[@role='combobox'])[1]";
+    public String FilterResultForRoleAIMLEngineer = "xpath=//span[normalize-space()='AI/ML Engineer']";
+    public String FilterResultForRoleAccountManager = "xpath=//span[normalize-space()='Account Manager']";
+    public String FilterResultForRoleBackendDeveloper = "xpath=//span[normalize-space()='Backend Developer']";
+    public String FilterResultForRoleBusinessAnalyst = "xpath=//span[normalize-space()='Business Analyst']";
+    public String FilterResultForRoleDevOps = "xpath=//span[normalize-space()='DevOps']";
+    public String FilterResultForFrontendDeveloper = "xpath=//span[normalize-space()='Frontend Developer']";
+    public String FilterResultForFullStackDeveloper = "xpath=//span[normalize-space()='Full Stack Developer']";
+    public String FilterResultForMobileDeveloper = "xpath=//span[normalize-space()='Mobile Developer']";
+    public String FilterResultForProjectManager = "xpath=//span[normalize-space()='Project Manager']";
+    public String FilterResultForQAAutomation= "xpath=//span[normalize-space()='QA - Automation']";
+    public String FilterResultForQAManual = "xpath=//span[normalize-space()='QA - Manual']";
+    public String FilterResultForReviewerBackend = "xpath=//span[normalize-space()='Reviewer - Backend']";
+    public String FilterResultForReviewerFrontend = "xpath=//span[normalize-space()='Reviewer - Frontend']";
+    public String FilterResultForReviewerMobile ="xpath=//span[normalize-space()='Reviewers - Mobile']";
+    public String FilterResultForScrumMaster ="xpath=//span[normalize-space()='Scrum Master']";
+    public String FilterResultForTechLead ="xpath=//span[normalize-space()='Technical lead']";
+
     public String btnAddProjectMember = "xpath=//p[normalize-space()='+ Add Member']";
     //Add member form components
     public String InputFieldAddMemberName = "xpath=//input[@id=':rc:']";
@@ -82,6 +103,58 @@ public class project extends WebPageBase {
     public String ProjectCardRemainingTime = "xpath=(//div[@class='MuiBox-root css-1byfef7'])[1]";
     public String ProjectCardProjectType = "xpath=(//p[@class='MuiTypography-root MuiTypography-body1 css-yqx786'])[1]";
     public String ProjectCardMemberIcons = "xpath=(//div[@class='MuiBox-root css-wo8od1'])[2]";
+
+
+    public void CheckFilterProjectMemberByRole() {
+        // List of roles to filter
+        List<String> roles = List.of(
+                FilterResultForRoleAIMLEngineer,
+                FilterResultForRoleAccountManager,
+                FilterResultForRoleBackendDeveloper,
+                FilterResultForRoleBusinessAnalyst,
+                FilterResultForRoleDevOps,
+                FilterResultForFrontendDeveloper,
+                FilterResultForFullStackDeveloper,
+                FilterResultForMobileDeveloper,
+                FilterResultForProjectManager,
+                FilterResultForQAAutomation,
+                FilterResultForQAManual,
+                FilterResultForReviewerBackend,
+                FilterResultForReviewerFrontend,
+                FilterResultForReviewerMobile,
+                FilterResultForScrumMaster,
+                FilterResultForTechLead
+        );
+
+        // Iterate through the list of roles
+        for (int i = 0; i < roles.size(); i++) {
+            // Click to open the role filter dropdown
+            clickElement(FilterByMemberRole);
+
+            // Select the role using keyboard navigation
+            for (int j = 0; j < i; j++) {
+                page.keyboard().press("ArrowDown");
+            }
+
+            // Press Enter to select the role
+            page.keyboard().press("Enter");
+
+            // Validate if the correct result is visible
+            String result = roles.get(i); // Get the role for verification
+            if (!isElementVisible(result)) {
+                System.out.println("Role not visible: " + result);
+            } else {
+                System.out.println("Role verified: " + result);
+            }
+        }
+    }
+
+
+    public void CheckSearchProjectMember(String memberSearchInput){
+        typeText(SearchProjectMember,memberSearchInput);
+        isElementVisible(SearchProjectMemberResults);
+        page.reload();
+    }
 
     public void CheckProjectCardContent(){
         isElementVisible(ProjectCardProjectName);
@@ -290,7 +363,6 @@ public class project extends WebPageBase {
         }
 
         typeText(InputFieldAddMemberName, name);
-
 
         // Pause
         try {

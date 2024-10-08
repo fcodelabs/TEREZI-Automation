@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class addProjectMemberTest extends PlaywrightTestBase {
+public class searchProjectMemberTest extends PlaywrightTestBase {
     project Projects;
 
     @BeforeMethod
@@ -14,10 +14,10 @@ public class addProjectMemberTest extends PlaywrightTestBase {
         Projects = new project(getPage());
     }
 
-    @DataProvider(name = "AddMemberDataProviderSuccessful")
+    @DataProvider(name = "SearchMemberDataProviderSuccessful")
     public Object[][] addMemberCredsSuccessful() {
         return new Object[][]{
-                {"Test User 2", "Full Stack Developer", "10/01/2024", "10/31/2024", "10"}
+                {"Dasun Hettiarachchi"}
         };
     }
 
@@ -26,15 +26,10 @@ public class addProjectMemberTest extends PlaywrightTestBase {
             "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
             "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
             "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
-    },dataProvider = "AddMemberDataProviderSuccessful")
-    public void testCheckAddProjectMember(String Name, String role, String resourceStart, String resourceEnd, String allocation) {
+    }, dataProvider = "SearchMemberDataProviderSuccessful")
+    public void testCheckSearchProjectMember(String memberSearchInput) {
         getPage().waitForTimeout(10000);
-        Projects.CheckAddProjectMember(Name, role, resourceStart, resourceEnd, allocation);
-    }
-
-    @Test(description = "HRIS-TC-")
-    public void testCheckAddProjectMemberFormMandatoryFields(){
-        Projects.CheckAddProjectMemberFormMandatoryFields();
+        Projects.CheckSearchProjectMember(memberSearchInput);
     }
 
 
