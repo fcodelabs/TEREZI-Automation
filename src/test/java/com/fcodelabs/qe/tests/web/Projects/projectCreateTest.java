@@ -36,10 +36,12 @@ public class projectCreateTest extends PlaywrightTestBase {
         };
     }
 
-    @Test(dependsOnMethods = {
-            "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
-            "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject"
-    }, dataProvider = "CreateProjectDataProviderSuccessful")
+//    dependsOnMethods = {
+//        "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
+//                "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject"
+//    },
+
+    @Test(dataProvider = "CreateProjectDataProviderSuccessful")
     public void testCreateProject(String projectName, String clientName, String TentativeStart, String TentativeEnd, String hypercarePeriod, String projectManager) {
         getPage().waitForTimeout(10000);
         Projects.CreateProject(projectName, clientName, TentativeStart, TentativeEnd, hypercarePeriod, projectManager);

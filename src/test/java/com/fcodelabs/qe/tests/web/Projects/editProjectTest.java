@@ -21,12 +21,14 @@ public class editProjectTest extends PlaywrightTestBase {
         };
     }
 
-    @Test(dependsOnMethods = {
-            "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
-            "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
-            "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
-            "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
-    },dataProvider = "EditProjectDataProviderSuccessful")
+//    dependsOnMethods = {
+//        "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
+//                "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
+//                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
+//                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
+//    },
+
+    @Test(dataProvider = "EditProjectDataProviderSuccessful")
     public void testCheckEditProject(String projectName, String clientName, String tentativeStart, String tentativeEnd,String hypercare,String projectManager, String allocation) {
         getPage().waitForTimeout(10000);
         Projects.CheckEditProject(projectName, clientName, tentativeStart, tentativeEnd, hypercare,projectManager, allocation);

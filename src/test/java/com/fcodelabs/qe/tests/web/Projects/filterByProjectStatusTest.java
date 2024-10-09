@@ -16,10 +16,12 @@ public class filterByProjectStatusTest extends PlaywrightTestBase {
         projects = new project(page);
     }
 
-    @Test(dependsOnMethods = {
-            "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
-            "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
-    })
+//    (dependsOnMethods = {
+//        "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
+//                "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
+//    })
+
+    @Test
     public void testCheckFilterByProjectStatusInitiate() {
         projects.CheckFilterByProjectStatusInitiate();
     }

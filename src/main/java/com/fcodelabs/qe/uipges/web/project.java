@@ -51,7 +51,7 @@ public class project extends WebPageBase {
 
     public String btnAddProjectMember = "xpath=//p[normalize-space()='+ Add Member']";
     //Add member form components
-    public String InputFieldAddMemberName = "xpath=//input[@id=':rc:']";
+    public String InputFieldAddMemberName = "(//input[@id=':r11:'])[1]";
     public String SelectFirstOptionInDropDown = "xpath=div[class='MuiBox-root css-18mgonu'] div:nth-child(3)";
     public String InputFieldAddMemberRole = "xpath=//input[@id=':re:']";
     public String InputFieldResourceStart = "xpath=//input[@id=':rg:']";

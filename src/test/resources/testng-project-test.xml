@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ProjectTestSuite">
+    <!--    <listeners>
+        <listener class-name="com.fcodelabs.qe.utils.testnglisteners.WebTestListener"/>
+    </listeners>    -->
+    <test name="ProjectTest">
+        <classes>
+            <class name="com.fcodelabs.qe.tests.web.signInTest">
+                <methods>
+                    <include name="testSignInSuccessful"/>
+                </methods>
+            </class>
+            <class name="com.fcodelabs.qe.tests.web.navigationBarTest">
+                <methods>
+                    <include name="testClickProject"/>
+                </methods>
+            </class>
+            <class name="com.fcodelabs.qe.tests.web.Projects.projectTest"/>
+        </classes>
+    </test>
+</suite>

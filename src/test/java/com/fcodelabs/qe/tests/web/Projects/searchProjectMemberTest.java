@@ -21,12 +21,14 @@ public class searchProjectMemberTest extends PlaywrightTestBase {
         };
     }
 
-    @Test(dependsOnMethods = {
-            "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
-            "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
-            "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
-            "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
-    }, dataProvider = "SearchMemberDataProviderSuccessful")
+//    dependsOnMethods = {
+//        "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
+//                "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
+//                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
+//                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
+//    },
+
+    @Test(dataProvider = "SearchMemberDataProviderSuccessful")
     public void testCheckSearchProjectMember(String memberSearchInput) {
         getPage().waitForTimeout(10000);
         Projects.CheckSearchProjectMember(memberSearchInput);

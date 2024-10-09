@@ -16,10 +16,13 @@ public class projectTest extends PlaywrightTestBase {
         Projects = new project(page);
     }
 
-    @Test(dependsOnMethods = {
-            "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
-            "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
-    }, description = "HRIS-TC-50,58")
+//    (dependsOnMethods = {
+//        "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
+//                "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
+//    }, description = "HRIS-TC-50,58")
+
+
+    @Test
     public void testCheckActiveProjectTabSectionContent(){
         Projects.CheckActiveProjectTabSectionContent();
     }

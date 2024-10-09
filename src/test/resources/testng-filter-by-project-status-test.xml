@@ -1,0 +1,30 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FilterByProjectStatusTestSuite">
+    <!--    <listeners>
+        <listener class-name="com.fcodelabs.qe.utils.testnglisteners.WebTestListener"/>
+    </listeners>    -->
+    <test name="FilterByProjectStatusTest">
+        <classes>
+            <class name="com.fcodelabs.qe.tests.web.signInTest">
+                <methods>
+                    <include name="testSignInSuccessful"/>
+                </methods>
+            </class>
+            <class name="com.fcodelabs.qe.tests.web.navigationBarTest">
+                <methods>
+                    <include name="testClickProject"/>
+                </methods>
+            </class>
+
+            <class name="com.fcodelabs.qe.tests.web.Projects.filterByProjectStatusTest">
+                <methods>
+                    <include name="testCheckFilterByProjectStatusInitiate"/>
+                    <include name="testCheckFilterByProjectStatusExecuting"/>
+                    <include name="testCheckFilterByProjectStatusHypercare"/>
+                    <include name="testCheckFilterByProjectStatusCompleted"/>
+                    <include name="testCheckFilterByProjectStatusDiscontinued"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
