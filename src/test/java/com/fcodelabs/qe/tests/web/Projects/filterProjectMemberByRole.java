@@ -3,7 +3,6 @@ package com.fcodelabs.qe.tests.web.Projects;
 import com.fcodelabs.qe.uipges.web.project;
 import com.fcodelabs.qe.utils.PlaywrightTestBase;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class filterProjectMemberByRole extends PlaywrightTestBase {
@@ -24,6 +23,4 @@ public class filterProjectMemberByRole extends PlaywrightTestBase {
         getPage().waitForTimeout(10000);
         Projects.CheckFilterProjectMemberByRole();
     }
-
-
 }

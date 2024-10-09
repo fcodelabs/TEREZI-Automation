@@ -106,7 +106,6 @@ public class project extends WebPageBase {
 
 
     public void CheckFilterProjectMemberByRole() {
-        // List of roles to filter
         List<String> roles = List.of(
                 FilterResultForRoleAIMLEngineer,
                 FilterResultForRoleAccountManager,
@@ -126,21 +125,16 @@ public class project extends WebPageBase {
                 FilterResultForTechLead
         );
 
-        // Iterate through the list of roles
         for (int i = 0; i < roles.size(); i++) {
-            // Click to open the role filter dropdown
             clickElement(FilterByMemberRole);
 
-            // Select the role using keyboard navigation
             for (int j = 0; j < i; j++) {
                 page.keyboard().press("ArrowDown");
             }
 
-            // Press Enter to select the role
             page.keyboard().press("Enter");
 
-            // Validate if the correct result is visible
-            String result = roles.get(i); // Get the role for verification
+            String result = roles.get(i);
             if (!isElementVisible(result)) {
                 System.out.println("Role not visible: " + result);
             } else {
@@ -349,6 +343,18 @@ public class project extends WebPageBase {
             e.printStackTrace();
         }
         typeText(InputFieldEditProjectAllocation, allocation);
+        //clickElement(btnEditProjectSave);
+    }
+    public void CheckEditProjectFormMandatoryFields(){
+        checkIfMandatory(InputFieldEditProjectName, "Edit project name");
+        //checkIfMandatory(InputFieldEditClientName, "Edit client name");
+        //checkIfMandatory(DropDownEditProjectType, "Edit project type");
+        checkIfMandatory(InputFieldEditTentativeStart, "Edit Tentative start date");
+        checkIfMandatory(InputFieldEditTentativeEnd, "Edit Tentative end date");
+        checkIfMandatory(InputFieldEditHypercarePeriod, "Edit Hypercare period");
+        checkIfMandatory(InputFieldEditProjectManager, "Edit project DR");
+        checkIfMandatory(InputFieldEditProjectAllocation, "Edit Allocation");
+
         clickElement(btnEditProjectSave);
     }
 

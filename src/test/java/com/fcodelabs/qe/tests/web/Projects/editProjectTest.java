@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class projectEditTest extends PlaywrightTestBase {
+public class editProjectTest extends PlaywrightTestBase {
     project Projects;
 
     @BeforeMethod
@@ -34,6 +34,10 @@ public class projectEditTest extends PlaywrightTestBase {
 
     @Test(description = "HRIS-TC-139")
     public void testCheckEditProjectFormContent(){
+    }
 
+    @Test(description = "")
+    public void testCheckEditProjectFormMandatoryFields(){
+        Projects.CheckEditProjectFormMandatoryFields();
     }
 }
