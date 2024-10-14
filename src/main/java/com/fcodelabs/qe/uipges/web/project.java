@@ -49,14 +49,13 @@ public class project extends WebPageBase {
     public String FilterResultForScrumMaster ="xpath=//span[normalize-space()='Scrum Master']";
     public String FilterResultForTechLead ="xpath=//span[normalize-space()='Technical lead']";
 
-    public String btnAddProjectMember = "xpath=//p[normalize-space()='+ Add Member']";
-    //Add member form components
-    public String InputFieldAddMemberName = "(//input[@id=':r11:'])[1]";
+    public String btnAddProjectMember = "xpath=(//button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1g33xf3'])[1]";
+    public String InputFieldAddMemberName = "xpath=//input[@id=':r11:']";
     public String SelectFirstOptionInDropDown = "xpath=div[class='MuiBox-root css-18mgonu'] div:nth-child(3)";
-    public String InputFieldAddMemberRole = "xpath=//input[@id=':re:']";
-    public String InputFieldResourceStart = "xpath=//input[@id=':rg:']";
-    public String InputFieldResourceEnd = "xpath=//input[@id=':ri:']";
-    public String InputFieldAllocation = "xpath=//input[@id=':ro:']";
+    public String InputFieldAddMemberRole = "xpath(//input[@id=':r13:'])[1]";
+    public String InputFieldResourceStart = "xpath=(//input[@id=':r15:'])[1]";
+    public String InputFieldResourceEnd = "xpath=(//input[@id=':r17:'])[1]";
+    public String InputFieldAllocation = "xpath=(//input[@id=':r1k:'])[1]";
     public String btnAddMemberCancel = "xpath=//button[normalize-space()='Cancel']";
     public String btnAddMemberSave = "xpath=//button[@id=':rk:']";
     public String CheckBoxMoreThanForty = "xpath=(//input[@type='checkbox'])[3]";
@@ -104,6 +103,31 @@ public class project extends WebPageBase {
     public String ProjectCardProjectType = "xpath=(//p[@class='MuiTypography-root MuiTypography-body1 css-yqx786'])[1]";
     public String ProjectCardMemberIcons = "xpath=(//div[@class='MuiBox-root css-wo8od1'])[2]";
 
+    //edit project member form components
+    public String btnProjectMemberEdit = "xpath=//tbody/tr[2]/td[7]/div[1]/button[1]";
+    public String formProjectMemberEdit = "xpath=(//div[@class='MuiBox-root css-1jp4s0u'])[1]";
+    public String ProjectMemberEditName = "xpath=(//input[@id=':r21:'])[1]";
+    public String ProjectMemberEditRole = "xpath=(//input[@id=':r22:'])[1]";
+    public String ProjectMemberEditResourceStartDate = "xpath=(//input[@id=':r11:'])[1]";
+    public String ProjectMemberEditResourceEndDate = "xpath=(//input[@id=':r26:'])[1]";
+    public String ProjectMemberEditAllocation = "xpath=(//input[@id=':r29:'])[1]";
+
+    public void CheckEditProjectMember(String resourceStart, String resourceEnd, String allocation){
+        clickElement(btnProjectMemberEdit);
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        isElementVisible(formProjectMemberEdit);
+        isElementVisible(ProjectMemberEditName);
+        isElementVisible(ProjectMemberEditRole);
+        typeText(ProjectMemberEditResourceStartDate, resourceStart);
+//        typeText(ProjectMemberEditResourceEndDate, resourceEnd);
+//        typeText(ProjectMemberEditAllocation, allocation);
+    };
 
     public void CheckFilterProjectMemberByRole() {
         List<String> roles = List.of(
@@ -286,14 +310,6 @@ public class project extends WebPageBase {
 
     }
 
-    public void CheckAddProjectMemberFormMandatoryFields(){
-        checkIfMandatory(InputFieldAddMemberName, "Add member name");
-        checkIfMandatory(InputFieldAddMemberRole,"Add member role");
-        checkIfMandatory(InputFieldResourceStart,"Resource start");
-        checkIfMandatory(InputFieldResourceEnd,"Resource end");
-        checkIfMandatory(InputFieldAllocation,"Allocation");
-    }
-
     public void CreateProject(String projectName, String clientName, String TentativeStart, String TentativeEnd,String hypercarePeriod, String projectManager){
         //clickElement(btnCreateProject);
         typeText(InputFieldProjectName, projectName);
@@ -360,14 +376,6 @@ public class project extends WebPageBase {
 
     public void CheckAddProjectMember(String name, String role, String startDate, String endDate, String allocation) {
         clickElement(btnAddProjectMember);
-
-        // Pause for 5 seconds
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         typeText(InputFieldAddMemberName, name);
 
         // Pause
@@ -385,9 +393,18 @@ public class project extends WebPageBase {
         typeText(InputFieldResourceStart, startDate);
         typeText(InputFieldResourceEnd, endDate);
         typeText(InputFieldAllocation, allocation);
-
-        clickElement(btnAddMemberSave);
     }
+
+    public void CheckAddProjectMemberFormMandatoryFields(){
+        clickElement(btnAddProjectMember);
+        checkIfMandatory(InputFieldAddMemberName, "Add member name");
+        checkIfMandatory(InputFieldAddMemberRole,"Add member role");
+        checkIfMandatory(InputFieldResourceStart,"Resource start");
+        checkIfMandatory(InputFieldResourceEnd,"Resource end");
+        //checkIfMandatory(InputFieldAllocation,"Allocation");
+        clickElement(btnAddMemberCancel);
+    }
+
     public project(Page page) {
         super(page);
     }

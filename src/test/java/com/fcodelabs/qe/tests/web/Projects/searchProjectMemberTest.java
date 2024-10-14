@@ -17,7 +17,7 @@ public class searchProjectMemberTest extends PlaywrightTestBase {
     @DataProvider(name = "SearchMemberDataProviderSuccessful")
     public Object[][] addMemberCredsSuccessful() {
         return new Object[][]{
-                {"Dasun Hettiarachchi"}
+                {"Ramesh rathnayke"}
         };
     }
 
