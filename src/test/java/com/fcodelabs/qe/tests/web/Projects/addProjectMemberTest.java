@@ -26,10 +26,21 @@ public class addProjectMemberTest extends PlaywrightTestBase {
             "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
             "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
             "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
-    },dataProvider = "AddMemberDataProviderSuccessful")
+    },description = "HRIS-TC-70")
+    public void testCheckAddProjectMemberButtonAvailability(){
+        Projects.CheckAddProjectMemberButtonAvailability();
+    }
+
+    @Test(description = "HRIS-TC-75")
+    public void testCheckAddProjectMemberFormContent(){
+        Projects.CheckAddProjectMemberFormContent();
+    }
+
+    @Test(dataProvider = "AddMemberDataProviderSuccessful",description = "HRIS-TC-312, step-1")
     public void testCheckAddProjectMember(String name, String role, String resourceStart, String resourceEnd, String allocation) {
         Projects.CheckAddProjectMember(name, role, resourceStart, resourceEnd, allocation);
     }
+
 
 //    @Test(dependsOnMethods = {
 //            "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",

@@ -20,7 +20,7 @@ public class projectCardTest extends PlaywrightTestBase {
 //                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
 //    },
 
-    @Test(description = "")
+    @Test(description = "HRIS-TC-55")
     public void testCheckProjectCardContent() {
         Projects.CheckProjectCardContent();
     }

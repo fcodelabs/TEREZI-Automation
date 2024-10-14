@@ -20,7 +20,7 @@ public class filterProjectMemberByRole extends PlaywrightTestBase {
 //                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
 //    })
 
-    @Test
+    @Test(description = "HRIS-TC-68")
     public void testCheckFilterProjectMemberByRole() {
         getPage().waitForTimeout(10000);
         Projects.CheckFilterProjectMemberByRole();

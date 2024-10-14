@@ -31,7 +31,6 @@ public class filterByProjectTypeTest extends PlaywrightTestBase {
         projects.CheckFilterByProjectTypeOptionTimeAndMaterial();
     }
 
-
     @Test
     public void testCheckFilterByProjectTypeOptionTimeAndMaterialWithBudgetCap() {
         projects.CheckFilterByProjectTypeOptionTimeAndMaterialWithBudgetCap();

@@ -50,11 +50,13 @@ public class project extends WebPageBase {
     public String FilterResultForTechLead ="xpath=//span[normalize-space()='Technical lead']";
 
     public String btnAddProjectMember = "xpath=(//button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1g33xf3'])[1]";
-    public String InputFieldAddMemberName = "xpath=//input[@id=':r11:']";
+    public String InputFieldAddMemberName = "xpath=(//input[@id=':r14:'])[1]";
     public String SelectFirstOptionInDropDown = "xpath=div[class='MuiBox-root css-18mgonu'] div:nth-child(3)";
     public String InputFieldAddMemberRole = "xpath(//input[@id=':r13:'])[1]";
     public String InputFieldResourceStart = "xpath=(//input[@id=':r15:'])[1]";
     public String InputFieldResourceEnd = "xpath=(//input[@id=':r17:'])[1]";
+    public String CheckBoxUseTheProjectStartDate = "xpath=(//input[@type='checkbox'])[1]";
+    public String CheckBoxUseTheProjectEndDate = "xpath=(//input[@type='checkbox'])[2]";
     public String InputFieldAllocation = "xpath=(//input[@id=':r1k:'])[1]";
     public String btnAddMemberCancel = "xpath=//button[normalize-space()='Cancel']";
     public String btnAddMemberSave = "xpath=//button[@id=':rk:']";
@@ -372,6 +374,25 @@ public class project extends WebPageBase {
         checkIfMandatory(InputFieldEditProjectAllocation, "Edit Allocation");
 
         clickElement(btnEditProjectSave);
+    }
+
+    public void CheckAddProjectMemberButtonAvailability(){
+        isElementVisible(btnAddProjectMember);
+    }
+
+    public void CheckAddProjectMemberFormContent(){
+        clickElement(btnAddProjectMember);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        isElementVisible(InputFieldAddMemberName);
+        isElementVisible(InputFieldAddMemberRole);
+        isElementVisible(InputFieldResourceStart);
+        isElementVisible(InputFieldResourceEnd);
+        isElementVisible(CheckBoxUseTheProjectStartDate);
+        isElementVisible(CheckBoxUseTheProjectEndDate);
     }
 
     public void CheckAddProjectMember(String name, String role, String startDate, String endDate, String allocation) {

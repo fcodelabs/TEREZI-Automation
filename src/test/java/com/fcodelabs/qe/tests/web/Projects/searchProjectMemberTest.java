@@ -28,7 +28,7 @@ public class searchProjectMemberTest extends PlaywrightTestBase {
 //                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
 //    },
 
-    @Test(dataProvider = "SearchMemberDataProviderSuccessful")
+    @Test(dataProvider = "SearchMemberDataProviderSuccessful",description = "HRIS-TC-69")
     public void testCheckSearchProjectMember(String memberSearchInput) {
         getPage().waitForTimeout(10000);
         Projects.CheckSearchProjectMember(memberSearchInput);

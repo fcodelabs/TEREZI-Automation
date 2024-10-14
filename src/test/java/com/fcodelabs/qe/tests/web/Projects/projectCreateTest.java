@@ -41,7 +41,7 @@ public class projectCreateTest extends PlaywrightTestBase {
 //                "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject"
 //    },
 
-    @Test(dataProvider = "CreateProjectDataProviderSuccessful")
+    @Test(dataProvider = "CreateProjectDataProviderSuccessful", description = "HRIS-TC-377")
     public void testCreateProject(String projectName, String clientName, String TentativeStart, String TentativeEnd, String hypercarePeriod, String projectManager) {
         getPage().waitForTimeout(10000);
         Projects.CreateProject(projectName, clientName, TentativeStart, TentativeEnd, hypercarePeriod, projectManager);

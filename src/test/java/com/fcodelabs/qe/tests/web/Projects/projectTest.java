@@ -22,7 +22,7 @@ public class projectTest extends PlaywrightTestBase {
 //    }, description = "HRIS-TC-50,58")
 
 
-    @Test
+    @Test(description = "HRIS-TC-50,58")
     public void testCheckActiveProjectTabSectionContent(){
         Projects.CheckActiveProjectTabSectionContent();
     }
