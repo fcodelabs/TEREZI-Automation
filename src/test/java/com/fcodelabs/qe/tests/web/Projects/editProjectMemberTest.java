@@ -25,7 +25,7 @@ public class editProjectMemberTest extends PlaywrightTestBase {
             "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
             "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
             "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults",
-            "com.fcodelabs.qe.tests.web.Projects.searchProjectTest.testCheckSearchProjectMember"
+            "com.fcodelabs.qe.tests.web.Projects.searchProjectMemberTest.testCheckSearchProjectMember"
     },dataProvider = "EditMemberDataProviderSuccessful")
     public void testCheckEditProjectMember(String resourceStart, String resourceEnd, String allocation) {
         Projects.CheckEditProjectMember(resourceStart, resourceEnd, allocation);
