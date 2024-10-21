@@ -30,7 +30,14 @@ public class project extends WebPageBase {
     public String btnEditProjectSave = "xpath=(//button[normalize-space()='Confirm'])[1]";
     //project details page components
     public String SearchProjectMember = "xpath=//input[@id='search-bar']";
+    public String ProjectDetailMemberName = "xpath=//th[normalize-space()='Name']";
+    public String ProjectDetailMemberRole ="xpath=//th[normalize-space()='Role']";
+    public String ProjectDetailHoursPerWeek = "xpath=//th[normalize-space()='Hours Per Week']";
+    public String ProjectDetailAddedOn = "xpath=//th[normalize-space()='Added On']";
+    public String ProjectDetailStatus = "xpath=//th[normalize-space()='Status']";
+    public String ActionBar = "xpath=//th[normalize-space()='Actions']";
     public String SearchProjectMemberResults = "xpath=//p[normalize-space()='Dasun Hettiarachchi']";
+    public String DropdownChangeProjectStatus = "xpath=(//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary css-i1qw7x'])[1]";
     public String FilterByMemberRole ="xpath=(//div[@role='combobox'])[1]";
     public String FilterResultForRoleAIMLEngineer = "xpath=//span[normalize-space()='AI/ML Engineer']";
     public String FilterResultForRoleAccountManager = "xpath=//span[normalize-space()='Account Manager']";
@@ -48,7 +55,6 @@ public class project extends WebPageBase {
     public String FilterResultForReviewerMobile ="xpath=//span[normalize-space()='Reviewers - Mobile']";
     public String FilterResultForScrumMaster ="xpath=//span[normalize-space()='Scrum Master']";
     public String FilterResultForTechLead ="xpath=//span[normalize-space()='Technical lead']";
-
     public String btnAddProjectMember = "xpath=(//button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1g33xf3'])[1]";
     public String InputFieldAddMemberName = "xpath=(//input[@id=':r14:'])[1]";
     public String SelectFirstOptionInDropDown = "xpath=div[class='MuiBox-root css-18mgonu'] div:nth-child(3)";
@@ -113,6 +119,19 @@ public class project extends WebPageBase {
     public String ProjectMemberEditResourceStartDate = "xpath=(//input[@id=':r11:'])[1]";
     public String ProjectMemberEditResourceEndDate = "xpath=(//input[@id=':r26:'])[1]";
     public String ProjectMemberEditAllocation = "xpath=(//input[@id=':r29:'])[1]";
+
+    public void CheckProjectDetailsPageContentForOperationLead(){
+        isElementVisible(SearchProjectMember);
+        isElementVisible(FilterByMemberRole);
+        isElementVisible(btnAddProjectMember);
+        isElementVisible(DropdownChangeProjectStatus);
+        isElementVisible(ProjectDetailMemberName);
+        isElementVisible(ProjectDetailMemberRole);
+        isElementVisible(ProjectDetailHoursPerWeek);
+        isElementVisible(ProjectDetailAddedOn);
+        isElementVisible(ProjectDetailStatus);
+        isElementVisible(ActionBar);
+    }
 
     public void CheckEditProjectMember(String resourceStart, String resourceEnd, String allocation){
         clickElement(btnProjectMemberEdit);

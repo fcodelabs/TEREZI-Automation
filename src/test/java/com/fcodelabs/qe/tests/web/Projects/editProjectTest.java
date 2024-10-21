@@ -38,7 +38,7 @@ public class editProjectTest extends PlaywrightTestBase {
     public void testCheckEditProjectFormContent(){
     }
 
-    @Test(description = "")
+    @Test(description = "HRIS-TC-378")
     public void testCheckEditProjectFormMandatoryFields(){
         Projects.CheckEditProjectFormMandatoryFields();
     }

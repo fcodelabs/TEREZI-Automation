@@ -21,13 +21,6 @@ public class searchProjectMemberTest extends PlaywrightTestBase {
         };
     }
 
-//    dependsOnMethods = {
-//        "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
-//                "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
-//                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
-//                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
-//    },
-
     @Test(dataProvider = "SearchMemberDataProviderSuccessful",description = "HRIS-TC-69")
     public void testCheckSearchProjectMember(String memberSearchInput) {
         getPage().waitForTimeout(10000);
