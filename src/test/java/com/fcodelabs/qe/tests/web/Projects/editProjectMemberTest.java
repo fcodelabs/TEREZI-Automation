@@ -20,13 +20,16 @@ public class editProjectMemberTest extends PlaywrightTestBase {
                 {"10/01/2024", "10/31/2024", "10"}
         };
     }
-    @Test(dependsOnMethods = {
-            "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
-            "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
-            "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
-            "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults",
-            "com.fcodelabs.qe.tests.web.Projects.searchProjectMemberTest.testCheckSearchProjectMember"
-    },dataProvider = "EditMemberDataProviderSuccessful")
+
+//    dependsOnMethods = {
+//        "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
+//                "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
+//                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
+//                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults",
+//                "com.fcodelabs.qe.tests.web.Projects.searchProjectMemberTest.testCheckSearchProjectMember"
+//    },
+
+    @Test(dataProvider = "EditMemberDataProviderSuccessful")
     public void testCheckEditProjectMember(String resourceStart, String resourceEnd, String allocation) {
         Projects.CheckEditProjectMember(resourceStart, resourceEnd, allocation);
     }

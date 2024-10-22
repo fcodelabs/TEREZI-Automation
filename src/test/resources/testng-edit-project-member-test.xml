@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="AddProjectMemberTestSuite">
+<suite name="EditProjectMemberTestSuite">
     <!--    <listeners>
         <listener class-name="com.fcodelabs.qe.utils.testnglisteners.WebTestListener"/>
     </listeners>    -->
-    <test name="AddProjectMemberTest">
+    <test name="EditProjectMemberTest">
         <classes>
             <class name="com.fcodelabs.qe.tests.web.signInTest">
                 <methods>
@@ -25,14 +25,17 @@
                     <include name="testCheckSearchProjectResults"/>
                 </methods>
             </class>
-            <class name="com.fcodelabs.qe.tests.web.Projects.addProjectMemberTest">
+            <class name="com.fcodelabs.qe.tests.web.Projects.searchProjectMemberTest">
                 <methods>
-                    <include name="testCheckAddProjectMemberButtonAvailability"/>
-                    <include name="testCheckAddProjectMemberFormContent"/>
-                    <include name="testCheckAddProjectMember"/>
-                    <include name="testCheckAddProjectMemberFormMandatoryFields"/>
+                    <include name="testCheckSearchProjectMember"/>
                 </methods>
             </class>
+            <class name="com.fcodelabs.qe.tests.web.Projects.editProjectMemberTest">
+                <methods>
+                    <include name="testCheckEditProjectMember"/>
+                </methods>
+            </class>
+
 
         </classes>
     </test>

@@ -21,12 +21,7 @@ public class addProjectMemberTest extends PlaywrightTestBase {
         };
     }
 
-    @Test(dependsOnMethods = {
-            "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
-            "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
-            "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
-            "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
-    },description = "HRIS-TC-70")
+    @Test(description = "HRIS-TC-70")
     public void testCheckAddProjectMemberButtonAvailability(){
         Projects.CheckAddProjectMemberButtonAvailability();
     }
@@ -41,12 +36,7 @@ public class addProjectMemberTest extends PlaywrightTestBase {
         Projects.CheckAddProjectMember(name, role, allocation);
     }
 
-    @Test(dependsOnMethods = {
-            "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
-            "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
-            "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
-            "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
-    },description = "HRIS-TC-")
+    @Test(description = "HRIS-TC-")
     public void testCheckAddProjectMemberFormMandatoryFields(){
         Projects.CheckAddProjectMemberFormMandatoryFields();
     }

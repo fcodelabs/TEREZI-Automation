@@ -16,7 +16,7 @@ public class navigationBarTest extends PlaywrightTestBase {
         NavigationBar = new navigationBar(page);
     }
 
-    @Test(dependsOnMethods = {"com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful"})
+    @Test
     public void testClickResourceAllocation() {
         NavigationBar.ClickResourceAllocation();
     }

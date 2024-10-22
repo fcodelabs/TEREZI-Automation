@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="NavigationBarTestSuite">
+    <!--    <listeners>
+        <listener class-name="com.fcodelabs.qe.utils.testnglisteners.WebTestListener"/>
+    </listeners>    -->
+    <test name="NavigationBarTest">
+        <classes>
+            <class name="com.fcodelabs.qe.tests.web.signInTest">
+                <methods>
+                    <include name="testSignInSuccessful"/>
+                </methods>
+            </class>
+            <class name="com.fcodelabs.qe.tests.web.navigationBarTest">
+                <methods>
+                    <include name="testClickResourceAllocation"/>
+                    <include name="testClickProject"/>
+                    <include name="testClickNotification"/>
+                    <include name="testClickPendingAction"/>
+                    <include name="testClickToolsAndTech"/>
+                    <include name="testClickUsers"/>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="AddProjectMemberTestSuite">
+<suite name="ProjectDetailsTestSuite">
     <!--    <listeners>
         <listener class-name="com.fcodelabs.qe.utils.testnglisteners.WebTestListener"/>
     </listeners>    -->
-    <test name="AddProjectMemberTest">
+    <test name="ProjectDetailsTest">
         <classes>
             <class name="com.fcodelabs.qe.tests.web.signInTest">
                 <methods>
