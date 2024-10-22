@@ -55,15 +55,16 @@ public class project extends WebPageBase {
     public String FilterResultForReviewerMobile ="xpath=//span[normalize-space()='Reviewers - Mobile']";
     public String FilterResultForScrumMaster ="xpath=//span[normalize-space()='Scrum Master']";
     public String FilterResultForTechLead ="xpath=//span[normalize-space()='Technical lead']";
+    //Add project member
     public String btnAddProjectMember = "xpath=(//button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1g33xf3'])[1]";
-    public String InputFieldAddMemberName = "xpath=(//input[@id=':r14:'])[1]";
+    public String InputFieldAddMemberName = "xpath=//input[@id='add-member-selection-field']";
     public String SelectFirstOptionInDropDown = "xpath=div[class='MuiBox-root css-18mgonu'] div:nth-child(3)";
-    public String InputFieldAddMemberRole = "xpath(//input[@id=':r13:'])[1]";
+    public String InputFieldAddMemberRole = "xpath=//input[@id='add-multiple-role-selection-field']";
     public String InputFieldResourceStart = "xpath=(//input[@id=':r15:'])[1]";
     public String InputFieldResourceEnd = "xpath=(//input[@id=':r17:'])[1]";
-    public String CheckBoxUseTheProjectStartDate = "xpath=(//input[@type='checkbox'])[1]";
-    public String CheckBoxUseTheProjectEndDate = "xpath=(//input[@type='checkbox'])[2]";
-    public String InputFieldAllocation = "xpath=(//input[@id=':r1k:'])[1]";
+    public String CheckBoxUseTheProjectStartDateAddMember = "xpath=(//input[@type='checkbox'])[1]";
+    public String CheckBoxUseTheProjectEndDateAddMember = "xpath=(//input[@type='checkbox'])[2]";
+    public String InputFieldAllocation = "xpath=//input[@id='add-member-allocation']";
     public String btnAddMemberCancel = "xpath=//button[normalize-space()='Cancel']";
     public String btnAddMemberSave = "xpath=//button[@id=':rk:']";
     public String CheckBoxMoreThanForty = "xpath=(//input[@type='checkbox'])[3]";
@@ -112,13 +113,15 @@ public class project extends WebPageBase {
     public String ProjectCardMemberIcons = "xpath=(//div[@class='MuiBox-root css-wo8od1'])[2]";
 
     //edit project member form components
-    public String btnProjectMemberEdit = "xpath=//tbody/tr[2]/td[7]/div[1]/button[1]";
+    public String btnProjectMemberEdit = "xpath=//tbody//tr//button[1]";
     public String formProjectMemberEdit = "xpath=(//div[@class='MuiBox-root css-1jp4s0u'])[1]";
-    public String ProjectMemberEditName = "xpath=(//input[@id=':r21:'])[1]";
-    public String ProjectMemberEditRole = "xpath=(//input[@id=':r22:'])[1]";
+    public String ProjectMemberEditName = "xpath=//input[@id='edit-proj-member-name']";
+    public String ProjectMemberEditRole = "xpath=//input[@id='edit-multiple-role-selection-field']";
     public String ProjectMemberEditResourceStartDate = "xpath=(//input[@id=':r11:'])[1]";
     public String ProjectMemberEditResourceEndDate = "xpath=(//input[@id=':r26:'])[1]";
-    public String ProjectMemberEditAllocation = "xpath=(//input[@id=':r29:'])[1]";
+    public String CheckBoxUseTheProjectStartDateEditMember ="xpath=//input[@id='start-date-checked']";
+    public String CheckBoxUseTheProjectEndDateEditMember = "xpath=//input[@id='end-date-checked']";
+    public String ProjectMemberEditAllocation = "xpath=//input[@id='allocation-text-field']";
 
     public void CheckProjectDetailsPageContentForOperationLead(){
         isElementVisible(SearchProjectMember);
@@ -142,12 +145,14 @@ public class project extends WebPageBase {
             e.printStackTrace();
         }
 
-        isElementVisible(formProjectMemberEdit);
+        //isElementVisible(formProjectMemberEdit);
         isElementVisible(ProjectMemberEditName);
         isElementVisible(ProjectMemberEditRole);
-        typeText(ProjectMemberEditResourceStartDate, resourceStart);
-//        typeText(ProjectMemberEditResourceEndDate, resourceEnd);
-//        typeText(ProjectMemberEditAllocation, allocation);
+        isElementVisible(ProjectMemberEditResourceStartDate);
+        clickElement(CheckBoxUseTheProjectStartDateEditMember);
+        clickElement(CheckBoxUseTheProjectEndDateEditMember);
+        isElementVisible(ProjectMemberEditResourceEndDate);
+        typeText(ProjectMemberEditAllocation, allocation);
     };
 
     public void CheckFilterProjectMemberByRole() {
@@ -188,11 +193,9 @@ public class project extends WebPageBase {
         }
     }
 
-
     public void CheckSearchProjectMember(String memberSearchInput){
         typeText(SearchProjectMember,memberSearchInput);
         isElementVisible(SearchProjectMemberResults);
-        page.reload();
     }
 
     public void CheckProjectCardContent(){
@@ -410,12 +413,11 @@ public class project extends WebPageBase {
         isElementVisible(InputFieldAddMemberRole);
         isElementVisible(InputFieldResourceStart);
         isElementVisible(InputFieldResourceEnd);
-        isElementVisible(CheckBoxUseTheProjectStartDate);
-        isElementVisible(CheckBoxUseTheProjectEndDate);
+        isElementVisible(CheckBoxUseTheProjectStartDateAddMember);
+        isElementVisible(CheckBoxUseTheProjectEndDateAddMember);
     }
 
-    public void CheckAddProjectMember(String name, String role, String startDate, String endDate, String allocation) {
-        clickElement(btnAddProjectMember);
+    public void CheckAddProjectMember(String name, String role, String allocation) {
         typeText(InputFieldAddMemberName, name);
 
         // Pause
@@ -430,18 +432,17 @@ public class project extends WebPageBase {
         page.keyboard().press("Enter");
 
         typeText(InputFieldAddMemberRole, role);
-        typeText(InputFieldResourceStart, startDate);
-        typeText(InputFieldResourceEnd, endDate);
+        clickElement(CheckBoxUseTheProjectStartDateAddMember);
+        clickElement(CheckBoxUseTheProjectEndDateAddMember);
         typeText(InputFieldAllocation, allocation);
     }
 
     public void CheckAddProjectMemberFormMandatoryFields(){
-        clickElement(btnAddProjectMember);
         checkIfMandatory(InputFieldAddMemberName, "Add member name");
         checkIfMandatory(InputFieldAddMemberRole,"Add member role");
-        checkIfMandatory(InputFieldResourceStart,"Resource start");
-        checkIfMandatory(InputFieldResourceEnd,"Resource end");
-        //checkIfMandatory(InputFieldAllocation,"Allocation");
+        //checkIfMandatory(InputFieldResourceStart,"Resource start");
+        //checkIfMandatory(InputFieldResourceEnd,"Resource end");
+        checkIfMandatory(InputFieldAllocation,"Allocation");
         clickElement(btnAddMemberCancel);
     }
 

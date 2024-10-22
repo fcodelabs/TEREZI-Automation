@@ -17,7 +17,7 @@ public class searchProjectMemberTest extends PlaywrightTestBase {
     @DataProvider(name = "SearchMemberDataProviderSuccessful")
     public Object[][] addMemberCredsSuccessful() {
         return new Object[][]{
-                {"Ramesh rathnayke"}
+                {"Ramesh rathnayake"}
         };
     }
 
@@ -26,6 +26,4 @@ public class searchProjectMemberTest extends PlaywrightTestBase {
         getPage().waitForTimeout(10000);
         Projects.CheckSearchProjectMember(memberSearchInput);
     }
-
-
 }

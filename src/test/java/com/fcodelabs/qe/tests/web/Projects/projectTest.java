@@ -37,8 +37,6 @@ public class projectTest extends PlaywrightTestBase {
         Projects.CheckProjectMainTabs();
     }
 
-
-
     @Test(description = "HRIS-TC-59")
     public void testCheckCreateProjectButton() {
         Projects.ClickCreateProject();

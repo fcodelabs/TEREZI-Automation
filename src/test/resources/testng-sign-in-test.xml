@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AddProjectMemberTestSuite">
+    <!--    <listeners>
+        <listener class-name="com.fcodelabs.qe.utils.testnglisteners.WebTestListener"/>
+    </listeners>    -->
+    <test name="AddProjectMemberTest">
+        <classes>
+            <class name="com.fcodelabs.qe.tests.web.signInTest">
+                <methods>
+                    <include name="testSignInSuccessful"/>
+                    <include name="testSignInUnsuccessfulWrongEmail"/>
+                    <include name="testSignInUnsuccessfulWrongPassword"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

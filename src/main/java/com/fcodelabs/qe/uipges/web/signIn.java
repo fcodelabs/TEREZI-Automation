@@ -4,7 +4,6 @@ import com.fcodelabs.qe.playwright.WebPageBase;
 import com.microsoft.playwright.Page;
 
 public class signIn extends WebPageBase {
-
     String txtEmail = "xpath=//input[@id='i0116']";
     String txtPassword = "xpath=//input[@id='i0118']";
     String btnNext = "xpath=//input[@id='idSIButton9']";
@@ -38,7 +37,6 @@ public class signIn extends WebPageBase {
     public signIn(Page page) {
         super(page);
     }
-
     // Method to enter password and click sign in and then click Yes`
     public void signInSuccessful(String email, String password) {
         signOut();
@@ -50,9 +48,9 @@ public class signIn extends WebPageBase {
     }
 
     public void signInUnsuccessfulWrongEmail(String email, String password){
-
-        signOut();
+        //signOut();
         typeText(txtEmail, email);
+        clickElement(btnNext);
         isElementVisible(wrongEmail);
     }
 

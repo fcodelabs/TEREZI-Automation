@@ -30,7 +30,6 @@
                     <include name="testCheckProjectDetailsPageContent"/>
                 </methods>
             </class>
-
         </classes>
     </test>
 </suite>

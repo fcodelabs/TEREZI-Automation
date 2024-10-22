@@ -37,7 +37,6 @@ public class signInTest extends PlaywrightTestBase {
         };
     }
 
-
     @Test(dataProvider = "loginDataProviderSuccessful", groups = {"signInTest"})
     public void testSignInSuccessful(String email, String password) {
         sign.signInSuccessful(email, password);

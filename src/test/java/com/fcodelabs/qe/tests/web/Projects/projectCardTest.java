@@ -13,13 +13,6 @@ public class projectCardTest extends PlaywrightTestBase {
         Projects = new project(getPage());
     }
 
-//    dependsOnMethods = {
-//        "com.fcodelabs.qe.tests.web.signInTest.testSignInSuccessful",
-//                "com.fcodelabs.qe.tests.web.navigationBarTest.testClickProject",
-//                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProject",
-//                "com.fcodelabs.qe.tests.web.Projects.projectSearchTest.testCheckSearchProjectResults"
-//    },
-
     @Test(description = "HRIS-TC-55")
     public void testCheckProjectCardContent() {
         Projects.CheckProjectCardContent();
