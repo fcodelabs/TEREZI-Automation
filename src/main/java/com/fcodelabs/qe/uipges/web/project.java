@@ -66,7 +66,7 @@ public class project extends WebPageBase {
     public String CheckBoxUseTheProjectEndDateAddMember = "xpath=(//input[@type='checkbox'])[2]";
     public String InputFieldAllocation = "xpath=//input[@id='add-member-allocation']";
     public String btnAddMemberCancel = "xpath=//button[normalize-space()='Cancel']";
-    public String btnAddMemberSave = "xpath=//button[@id=':rk:']";
+    public String btnAddMemberSave = "xpath=(//button[normalize-space()='Save'])[1]";
     public String CheckBoxMoreThanForty = "xpath=(//input[@type='checkbox'])[3]";
     //create new project form components
     public String InputFieldProjectName = "xpath=//input[@id=':r2:']";
@@ -123,6 +123,11 @@ public class project extends WebPageBase {
     public String CheckBoxUseTheProjectEndDateEditMember = "xpath=//input[@id='end-date-checked']";
     public String ProjectMemberEditAllocation = "xpath=//input[@id='allocation-text-field']";
 
+    //delete project member
+    public String btnDeleteSearchedMember = "xpath=(//button[@type='button'])[10]";
+    public String confirmDeleteMember = "xpath=//button[normalize-space()='Yes, Remove']";
+
+
     public void CheckProjectDetailsPageContentForOperationLead(){
         isElementVisible(SearchProjectMember);
         isElementVisible(FilterByMemberRole);
@@ -134,6 +139,11 @@ public class project extends WebPageBase {
         isElementVisible(ProjectDetailAddedOn);
         isElementVisible(ProjectDetailStatus);
         isElementVisible(ActionBar);
+    }
+
+    public void CheckDeleteProjectMember(String name){
+        clickElement(btnDeleteSearchedMember);
+        clickElement(confirmDeleteMember);
     }
 
     public void CheckEditProjectMember(String resourceStart, String resourceEnd, String allocation){
@@ -435,6 +445,7 @@ public class project extends WebPageBase {
         clickElement(CheckBoxUseTheProjectStartDateAddMember);
         clickElement(CheckBoxUseTheProjectEndDateAddMember);
         typeText(InputFieldAllocation, allocation);
+        clickElement(btnAddMemberSave);
     }
 
     public void CheckAddProjectMemberFormMandatoryFields(){
